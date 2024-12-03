@@ -1,0 +1,22 @@
+{
+  "name": "sst-image",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "sst dev --stage isaac",
+    "deploy": "sst deploy --stage isaac"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "sst": "^3.2.76"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.687.0",
+    "aws-lambda": "^1.0.7",
+    "esbuild": "^0.24.0",
+    "sharp": "^0.33.5"
+  }
+}
