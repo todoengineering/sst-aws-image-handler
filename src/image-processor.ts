@@ -5,7 +5,10 @@ import {
 } from "@aws-sdk/client-s3";
 import Sharp from "sharp";
 import { Resource } from "sst";
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
+import type {
+  APIGatewayProxyEventV2,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
 
 // Types
 type ImageFormat = "jpeg" | "gif" | "webp" | "png" | "avif";
@@ -32,8 +35,8 @@ interface TimingMetrics {
 
 // Constants
 const config: ImageProcessingConfig = {
-  originalBucket: Resource.ContentAssetBucketOriginal.name,
-  transformedBucket: Resource.ContentAssetBucketTransformed.name,
+  originalBucket: Resource[`${process.env.name}Original`].name,
+  transformedBucket: Resource[`${process.env.name}Transformed`].name,
   cacheTTL: process.env.transformedImageCacheTTL || "max-age=31536000",
   maxImageSize: parseInt(process.env.maxImageSize || String(6 * 1024 * 1024)),
 };

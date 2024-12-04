@@ -6,5 +6,18 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
+    "TestImageProcessor": {
+      "name": string
+      "type": "sst.aws.Function"
+      "url": string
+    }
+    "TestOriginal": {
+      "name": string
+      "type": "sst.aws.Bucket"
+    }
+    "TestTransformed": {
+      "name": string
+      "type": "sst.aws.Bucket"
+    }
   }
 }

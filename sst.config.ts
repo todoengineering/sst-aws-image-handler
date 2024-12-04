@@ -15,13 +15,13 @@ export default $config({
     };
   },
   async run() {
+    if (!process.env.NAME) {
+      throw new Error("NAME environment variable is required");
+    }
+
     const outputs = {};
 
     for (const value of readdirSync("./infra/")) {
-      if (value === "index.ts") {
-        continue;
-      }
-
       const result = await import("./infra/" + value);
 
       if (result.outputs) Object.assign(outputs, result.outputs);

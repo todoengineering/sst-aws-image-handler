@@ -3,7 +3,7 @@ import { cloudfrontRewriteFunction, imageProcessorFunction } from "./function";
 import { createResourceName } from "./utils";
 
 const cloudfrontOAI = new aws.cloudfront.OriginAccessIdentity(
-  `${bucketBaseName}OAI`,
+  createResourceName("CloudFrontOAI"),
 );
 
 const lambdaOAC = new aws.cloudfront.OriginAccessControl(
